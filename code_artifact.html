@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Âme Botanique 侍香之境 ｜ 侍香師與芳療調配工坊</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            botanical: {
+              50: '#FBF9F5',
+              100: '#F4EFEA',
+              200: '#E7DDD3',
+              300: '#D5C4B4',
+              400: '#B89F88',
+              500: '#9B7C62',
+              600: '#7E6149',
+              700: '#634B37',
+              800: '#4B3728',
+              900: '#32241A'
+            },
+            sage: {
+              50: '#F4F7F4',
+              100: '#E6ECE5',
+              500: '#7A917B',
+              700: '#4F6350',
+              900: '#2A362B'
+            },
+            amberwood: '#C87D55'
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            display: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FBF9F5;
+      color: #32241A;
+      font-family: 'Plus Jakarta Sans', 'Noto Serif TC', sans-serif;
+    }
+    .font-serif-tc {
+      font-family: 'Noto Serif TC', serif;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    /* Subtle paper texture overlay */
+    .paper-texture {
+      background-image: radial-gradient(#d5c4b4 0.65px, transparent 0.65px), radial-gradient(#d5c4b4 0.65px, #FBF9F5 0.65px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+    }
+    /* Hide scrollbars for carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-botanical-300 selection:text-botanical-900">
+
+  <header class="sticky top-0 z-40 bg-botanical-50/90 backdrop-blur-md border-b border-botanical-200/70 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-full border border-botanical-400 flex items-center justify-center bg-botanical-100 group-hover:bg-botanical-200 transition-colors">
+            <svg class="w-5 h-5 text-botanical-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18m0-18C8.5 7 5 11 5 15a7 7 0 0014 0c0-4-3.5-8-7-12z" />
+            </svg>
+          </div>
+          <div>
+            <span class="block text-xl tracking-widest font-cinzel font-semibold text-botanical-900">L'ÂME BOTANIQUE</span>
+            <span class="block text-xs font-serif-tc tracking-wider text-botanical-600">侍香之境 ‧ 高級植物芳療</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-botanical-800">
+          <a href="#about" class="hover:text-amberwood transition-colors">侍香哲學</a>
+          <a href="#catalogue" class="hover:text-amberwood transition-colors">精油圖鑑</a>
+          <a href="#recipes" class="hover:text-amberwood transition-colors">調香建議</a>
+          <a href="#blender" class="hover:text-amberwood transition-colors">專屬調配室</a>
+          <a href="#contact" class="hover:text-amberwood transition-colors">預約香席</a>
+        </nav>
+
+        <!-- CTA & Quick Action -->
+        <div class="hidden sm:flex items-center space-x-4">
+          <a href="#blender" class="px-5 py-2.5 rounded-full text-xs font-medium tracking-wider uppercase bg-botanical-800 text-botanical-50 hover:bg-botanical-700 transition shadow-sm hover:shadow">
+            立即自訂香方
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-botanical-700 hover:bg-botanical-200 focus:outline-none" aria-label="切換選單">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-botanical-200 bg-botanical-50 px-4 pt-2 pb-6 space-y-3">
+      <a href="#about" class="block py-2 text-base font-medium text-botanical-800 hover:text-amberwood mobile-nav-link">侍香哲學</a>
+      <a href="#catalogue" class="block py-2 text-base font-medium text-botanical-800 hover:text-amberwood mobile-nav-link">精油圖鑑</a>
+      <a href="#recipes" class="block py-2 text-base font-medium text-botanical-800 hover:text-amberwood mobile-nav-link">調香建議</a>
+      <a href="#blender" class="block py-2 text-base font-medium text-botanical-800 hover:text-amberwood mobile-nav-link">專屬調配室</a>
+      <a href="#contact" class="block py-2 text-base font-medium text-botanical-800 hover:text-amberwood mobile-nav-link">預約香席</a>
+      <div class="pt-2">
+        <a href="#blender" class="block text-center w-full py-2.5 rounded-full text-xs font-medium tracking-wider uppercase bg-botanical-800 text-botanical-50 mobile-nav-link">
+          立即自訂香方
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="relative overflow-hidden py-20 lg:py-32 border-b border-botanical-200">
+      <div class="absolute inset-0 opacity-40 paper-texture -z-10"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-medium tracking-widest uppercase">
+              <span class="w-2 h-2 rounded-full bg-sage-500"></span>
+              以植物靈魂為墨 ‧ 撰寫心靈香譜
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif-tc font-normal text-botanical-900 leading-tight">
+              聽植物的低語，<br>
+              喚醒感官的<span class="italic font-cinzel text-amberwood">靜謐歸宿</span>。
+            </h1>
+            <p class="text-base sm:text-lg text-botanical-700 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              「侍香師」非僅是氣味的調配者，更是人與大自然能量的引渡人。我們精選全球嚴謹產地之蒸餾與冷壓單方精油，藉由前、中、後調的精準共振，為您度身裁雲，化作安撫神經與滋養靈魂的氣味羽翼。
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#catalogue" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-botanical-900 text-botanical-50 font-medium text-sm hover:bg-botanical-800 transition shadow-md hover:shadow-lg text-center">
+                探索八大典藏精油
+              </a>
+              <a href="#blender" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-botanical-400 text-botanical-800 font-medium text-sm hover:bg-botanical-100 transition text-center flex items-center justify-center gap-2">
+                <span>調香實驗工作台</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+
+            <!-- Stats/Badges -->
+            <div class="grid grid-cols-3 gap-4 pt-8 border-t border-botanical-200/80 max-w-lg mx-auto lg:mx-0">
+              <div>
+                <p class="font-cinzel text-2xl font-bold text-botanical-900">100%</p>
+                <p class="text-xs text-botanical-600 font-serif-tc">純天然單方蒸餾</p>
+              </div>
+              <div>
+                <p class="font-cinzel text-2xl font-bold text-botanical-900">IFA/NAHA</p>
+                <p class="text-xs text-botanical-600 font-serif-tc">國際雙認證侍香師</p>
+              </div>
+              <div>
+                <p class="font-cinzel text-2xl font-bold text-botanical-900">1:1</p>
+                <p class="text-xs text-botanical-600 font-serif-tc">身心客製香階設計</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Feature Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md rounded-3xl overflow-hidden bg-botanical-100 border border-botanical-300 shadow-2xl p-4">
+              <div class="relative h-96 w-full rounded-2xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80" 
+                  alt="Aromatherapy Essential Oil Bottles" 
+                  onerror="this.src='https://placehold.co/800x1000/3A2D23/FAF8F5?text=Botanique+Aroma'"
+                  class="w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-botanical-950/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                  <span class="text-xs uppercase tracking-widest text-amber-200 font-cinzel">Signature Ritual</span>
+                  <h3 class="text-xl font-serif-tc font-semibold">春分・林間朝霧配方</h3>
+                  <p class="text-xs text-stone-200 line-clamp-2">佛手柑、真正薰衣草與大西洋雪松的悠揚三部曲，重拾心神安歇之所。</p>
+                </div>
+              </div>
+              
+              <!-- Floating Badge -->
+              <div class="absolute -top-4 -right-4 bg-white/95 backdrop-blur border border-botanical-200 p-3 rounded-2xl shadow-lg flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-sage-50 text-sage-700 flex items-center justify-center font-cinzel text-sm font-bold">
+                  🌿
+                </div>
+                <div>
+                  <p class="text-[11px] uppercase tracking-wider text-botanical-500 font-semibold">Therapeutic</p>
+                  <p class="text-xs font-serif-tc font-bold text-botanical-900">芳療級認證萃取</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-botanical-100/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+          <span class="text-xs font-cinzel tracking-widest text-botanical-600 uppercase">Core Philosophy</span>
+          <h2 class="text-3xl sm:text-4xl font-serif-tc font-normal text-botanical-900">侍香四境：致敬自然本真</h2>
+          <div class="w-12 h-0.5 bg-amberwood mx-auto mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+          <!-- Pillar 1 -->
+          <div class="bg-white/80 p-8 rounded-2xl border border-botanical-200 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-botanical-50 border border-botanical-300 flex items-center justify-center text-amberwood mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918"/></svg>
+            </div>
+            <h3 class="text-lg font-serif-tc font-semibold text-botanical-900 mb-2">單一產地溯源</h3>
+            <p class="text-sm text-botanical-700 leading-relaxed">嚴格標註植物學名、化學型（Chemo-type）與產區微氣候，堅持永續野生撫育。</p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white/80 p-8 rounded-2xl border border-botanical-200 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-botanical-50 border border-botanical-300 flex items-center justify-center text-amberwood mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3 class="text-lg font-serif-tc font-semibold text-botanical-900 mb-2">音階調香心法</h3>
+            <p class="text-sm text-botanical-700 leading-relaxed">遵循前調輕揚、中調飽滿、後調沉著的古典音階結構，建構兼具氣味與療癒深度的平衡。</p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white/80 p-8 rounded-2xl border border-botanical-200 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-botanical-50 border border-botanical-300 flex items-center justify-center text-amberwood mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-serif-tc font-semibold text-botanical-900 mb-2">情緒與神經滋養</h3>
+            <p class="text-sm text-botanical-700 leading-relaxed">利用嗅覺受器直通大腦邊緣系統的特質，撫慰緊繃自主神經，釋放深層鬱結記憶。</p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-white/80 p-8 rounded-2xl border border-botanical-200 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-botanical-50 border border-botanical-300 flex items-center justify-center text-amberwood mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-lg font-serif-tc font-semibold text-botanical-900 mb-2">嚴謹稀釋劑量學</h3>
+            <p class="text-sm text-botanical-700 leading-relaxed">提供精密的植物載體油搭配與安全濃度換算，無論是日常擴香或塗抹皆給予安心守護。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogue" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-cinzel tracking-widest text-botanical-600 uppercase">Botanical Compendium</span>
+          <h2 class="text-3xl sm:text-4xl font-serif-tc font-normal text-botanical-900">精選單方精油圖鑑</h2>
+          <p class="text-sm text-botanical-700">探索大自然孕育的芳香分子、音階調性與身心療癒指引</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="filter-container">
+          <button data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-botanical-900 text-white transition">
+            全部調性 (8)
+          </button>
+          <button data-filter="top" class="filter-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-botanical-100 text-botanical-800 hover:bg-botanical-200 transition">
+            前調 輕盈感 (3)
+          </button>
+          <button data-filter="mid" class="filter-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-botanical-100 text-botanical-800 hover:bg-botanical-200 transition">
+            中調 核心調 (3)
+          </button>
+          <button data-filter="base" class="filter-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-botanical-100 text-botanical-800 hover:bg-botanical-200 transition">
+            後調 沉穩基底 (2)
+          </button>
+        </div>
+      </div>
+
+      <!-- Essential Oils Grid -->
+      <div id="oils-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Javascript will inject oil cards or render them seamlessly -->
+      </div>
+    </section>
+
+    <section id="recipes" class="py-20 bg-botanical-900 text-botanical-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <span class="text-xs font-cinzel tracking-widest text-amber-300 uppercase">Synergy Formulations</span>
+          <h2 class="text-3xl sm:text-4xl font-serif-tc font-normal text-white">侍香師經典調香建議</h2>
+          <p class="text-sm text-botanical-300">
+            精油的相乘作用（Synergy）能引發遠超越單一香氣的強大能量。以下為侍香師為不同生活情境精心研擬的經典黃金比例。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Recipe Card 1 -->
+          <div class="bg-botanical-800/80 border border-botanical-700/80 rounded-3xl p-8 flex flex-col justify-between hover:border-amber-400/50 transition duration-300">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-amber-900/60 text-amber-200 border border-amber-700/50">
+                  夜寐安神 ‧ 深度釋壓
+                </span>
+                <span class="text-xs font-cinzel text-botanical-400">Recipe No. 01</span>
+              </div>
+              <h3 class="text-2xl font-serif-tc text-white mb-2">月湧靜瀾 (Deep Slumber)</h3>
+              <p class="text-xs text-botanical-300 mb-6 leading-relaxed">
+                撫平交感神經過度活躍，宛如浸潤於暮色月光下的幽靜森林，適合睡前薰香或塗抹於胸膛與腳底。
+              </p>
+
+              <!-- Proportions Breakdown -->
+              <div class="space-y-3 p-4 rounded-2xl bg-botanical-900/60 border border-botanical-700 mb-6">
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>真正薰衣草 (中調)</span>
+                  <span class="font-mono text-amber-300">4 滴 (40%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span>佛手柑 (前調)</span>
+                  <span class="font-mono text-amber-300">3 滴 (30%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-700"></span>大西洋雪松 (後調)</span>
+                  <span class="font-mono text-amber-300">3 滴 (30%)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-botanical-700/70 flex items-center justify-between">
+              <span class="text-xs text-botanical-400">載體：10ml 荷荷芭油 (3%濃度)</span>
+              <button onclick="loadRecipeToBlender('slumber')" class="text-xs font-semibold text-amber-300 hover:text-amber-200 flex items-center gap-1">
+                載入配方台 <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recipe Card 2 -->
+          <div class="bg-botanical-800/80 border border-botanical-700/80 rounded-3xl p-8 flex flex-col justify-between hover:border-amber-400/50 transition duration-300">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-emerald-900/60 text-emerald-200 border border-emerald-700/50">
+                  心智澄明 ‧ 靈感凝思
+                </span>
+                <span class="text-xs font-cinzel text-botanical-400">Recipe No. 02</span>
+              </div>
+              <h3 class="text-2xl font-serif-tc text-white mb-2">晨曦靈光 (Lucid Dawn)</h3>
+              <p class="text-xs text-botanical-300 mb-6 leading-relaxed">
+                驅散午後混沌昏沉，清亮氣流貫穿思緒，激發創作洞察力與高效專注力，工作與讀書必備空間擴香。
+              </p>
+
+              <!-- Proportions Breakdown -->
+              <div class="space-y-3 p-4 rounded-2xl bg-botanical-900/60 border border-botanical-700 mb-6">
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>迷迭香 (中調)</span>
+                  <span class="font-mono text-amber-300">4 滴 (40%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-teal-400"></span>澳洲尤加利 (前調)</span>
+                  <span class="font-mono text-amber-300">4 滴 (40%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-600"></span>乳香 (後調)</span>
+                  <span class="font-mono text-amber-300">2 滴 (20%)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-botanical-700/70 flex items-center justify-between">
+              <span class="text-xs text-botanical-400">載體：水氧機擴香 / 30ml 空間噴霧</span>
+              <button onclick="loadRecipeToBlender('clarity')" class="text-xs font-semibold text-amber-300 hover:text-amber-200 flex items-center gap-1">
+                載入配方台 <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recipe Card 3 -->
+          <div class="bg-botanical-800/80 border border-botanical-700/80 rounded-3xl p-8 flex flex-col justify-between hover:border-amber-400/50 transition duration-300">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-rose-900/60 text-rose-200 border border-rose-700/50">
+                  心輪綻放 ‧ 溫柔自愛
+                </span>
+                <span class="text-xs font-cinzel text-botanical-400">Recipe No. 03</span>
+              </div>
+              <h3 class="text-2xl font-serif-tc text-white mb-2">繁花予己 (Roseate Grace)</h3>
+              <p class="text-xs text-botanical-300 mb-6 leading-relaxed">
+                撫慰心靈創傷，重塑內在自我價值感。甜美繁花伴隨沉穩木質氣息，給予最綿長細緻的擁抱。
+              </p>
+
+              <!-- Proportions Breakdown -->
+              <div class="space-y-3 p-4 rounded-2xl bg-botanical-900/60 border border-botanical-700 mb-6">
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span>大馬士革玫瑰 (中調)</span>
+                  <span class="font-mono text-amber-300">2 滴 (25%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>依蘭依蘭 (中/後調)</span>
+                  <span class="font-mono text-amber-300">2 滴 (25%)</span>
+                </div>
+                <div class="flex justify-between text-xs text-botanical-200">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span>佛手柑 (前調)</span>
+                  <span class="font-mono text-amber-300">4 滴 (50%)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-botanical-700/70 flex items-center justify-between">
+              <span class="text-xs text-botanical-400">載體：15ml 玫瑰果油 (1.5%臉頸油)</span>
+              <button onclick="loadRecipeToBlender('love')" class="text-xs font-semibold text-amber-300 hover:text-amber-200 flex items-center gap-1">
+                載入配方台 <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="blender" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <span class="text-xs font-cinzel tracking-widest text-botanical-600 uppercase">Apothecary Lab</span>
+        <h2 class="text-3xl sm:text-4xl font-serif-tc font-normal text-botanical-900">侍香師調配工作台</h2>
+        <p class="text-sm text-botanical-700">
+          自訂您的專屬香方。選擇載體用途，調和前、中、後調滴數，系統將即時計算音階配比與安全稀釋濃度。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Formulation Controls (Left 7 Cols) -->
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-botanical-200 shadow-sm space-y-8">
+          
+          <!-- Step 1: Base Carrier selection -->
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <label class="text-base font-serif-tc font-semibold text-botanical-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-botanical-900 text-botanical-50 text-xs flex items-center justify-center font-cinzel">1</span>
+                選擇基底載體與用途
+              </label>
+              <span id="carrier-hint" class="text-xs text-botanical-500 font-medium">建議安全濃度：2% ~ 3%</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <label class="carrier-option cursor-pointer border-2 border-botanical-300 bg-botanical-50/50 hover:bg-botanical-100 p-3 rounded-2xl flex flex-col text-center transition">
+                <input type="radio" name="carrier" value="rollon" class="sr-only" checked onchange="handleCarrierChange(this)">
+                <span class="font-serif-tc text-sm font-semibold text-botanical-900">隨身滾珠油</span>
+                <span class="text-[11px] text-botanical-600 mt-1">10ml (荷荷芭油)</span>
+              </label>
+
+              <label class="carrier-option cursor-pointer border-2 border-transparent bg-botanical-50/50 hover:bg-botanical-100 p-3 rounded-2xl flex flex-col text-center transition">
+                <input type="radio" name="carrier" value="massage" class="sr-only" onchange="handleCarrierChange(this)">
+                <span class="font-serif-tc text-sm font-semibold text-botanical-900">舒緩按摩油</span>
+                <span class="text-[11px] text-botanical-600 mt-1">30ml (甜杏仁油)</span>
+              </label>
+
+              <label class="carrier-option cursor-pointer border-2 border-transparent bg-botanical-50/50 hover:bg-botanical-100 p-3 rounded-2xl flex flex-col text-center transition">
+                <input type="radio" name="carrier" value="mist" class="sr-only" onchange="handleCarrierChange(this)">
+                <span class="font-serif-tc text-sm font-semibold text-botanical-900">香氛噴霧</span>
+                <span class="text-[11px] text-botanical-600 mt-1">50ml (植萃酒精)</span>
+              </label>
+
+              <label class="carrier-option cursor-pointer border-2 border-transparent bg-botanical-50/50 hover:bg-botanical-100 p-3 rounded-2xl flex flex-col text-center transition">
+                <input type="radio" name="carrier" value="diffuser" class="sr-only" onchange="handleCarrierChange(this)">
+                <span class="font-serif-tc text-sm font-semibold text-botanical-900">純精油擴香</span>
+                <span class="text-[11px] text-botanical-600 mt-1">水氧機 / 擴香石</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Essential Oil Drop Selectors -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <label class="text-base font-serif-tc font-semibold text-botanical-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-botanical-900 text-botanical-50 text-xs flex items-center justify-center font-cinzel">2</span>
+                調配精油滴數 (Drops)
+              </label>
+              <button type="button" onclick="resetBlender()" class="text-xs text-botanical-600 hover:text-amberwood underline">
+                重設滴數
+              </button>
+            </div>
+
+            <!-- Dynamic Oil Selectors List -->
+            <div id="oil-sliders-container" class="space-y-4">
+              <!-- Sliders will be dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Step 3: Client Details & Intentions -->
+          <div class="pt-4 border-t border-botanical-200">
+            <label class="text-base font-serif-tc font-semibold text-botanical-900 flex items-center gap-2 mb-4">
+              <span class="w-6 h-6 rounded-full bg-botanical-900 text-botanical-50 text-xs flex items-center justify-center font-cinzel">3</span>
+              調香師札記與預約委託
+            </label>
+            
+            <form id="custom-blend-form" onsubmit="handleBlendSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-medium text-botanical-700 mb-1">調香委託人姓名 / 稱謂</label>
+                  <input type="text" id="client-name" required placeholder="例如：林詠晴" class="w-full px-4 py-2.5 rounded-xl border border-botanical-300 focus:outline-none focus:ring-2 focus:ring-botanical-500 text-sm bg-botanical-50/50">
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-botanical-700 mb-1">聯絡 Email 或手機</label>
+                  <input type="text" id="client-contact" required placeholder="contact@example.com" class="w-full px-4 py-2.5 rounded-xl border border-botanical-300 focus:outline-none focus:ring-2 focus:ring-botanical-500 text-sm bg-botanical-50/50">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-botanical-700 mb-1">為此款香方命名</label>
+                <input type="text" id="blend-name" placeholder="例如：午後漫步、林間靜心" class="w-full px-4 py-2.5 rounded-xl border border-botanical-300 focus:outline-none focus:ring-2 focus:ring-botanical-500 text-sm bg-botanical-50/50">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-botanical-700 mb-1">心靈祈願或特殊體質說明 (懷孕/蠶豆症/寵物)</label>
+                <textarea id="blend-notes" rows="2" placeholder="請備註期望的情緒調適方向，或家中有無幼童/毛孩..." class="w-full px-4 py-2.5 rounded-xl border border-botanical-300 focus:outline-none focus:ring-2 focus:ring-botanical-500 text-sm bg-botanical-50/50"></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button type="submit" class="flex-1 py-3 px-6 rounded-full bg-botanical-900 text-white font-medium text-sm hover:bg-botanical-800 transition shadow-sm text-center">
+                  送出客製侍香訂製委託
+                </button>
+                <button type="button" onclick="copyRecipeCard()" class="py-3 px-5 rounded-full border border-botanical-300 hover:bg-botanical-100 text-botanical-800 font-medium text-sm transition flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                  <span>複製香方文字</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Live Analysis Dashboard (Right 5 Cols) -->
+        <div class="lg:col-span-5 sticky top-28 space-y-6">
+          <div class="bg-botanical-900 text-botanical-50 p-6 sm:p-8 rounded-3xl shadow-xl border border-botanical-800">
+            <div class="flex items-center justify-between pb-6 border-b border-botanical-800">
+              <div>
+                <span class="text-[10px] font-cinzel uppercase tracking-widest text-amber-300">Live Acoustic Profile</span>
+                <h3 class="text-xl font-serif-tc font-normal text-white">香調共振儀表板</h3>
+              </div>
+              <div class="text-right">
+                <span id="stat-total-drops" class="text-3xl font-mono font-bold text-amber-300">6</span>
+                <span class="text-xs text-botanical-400 block">總精油滴數</span>
+              </div>
+            </div>
+
+            <!-- Concentration Indicator -->
+            <div class="py-5 border-b border-botanical-800 space-y-2">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-botanical-300">預估調和濃度 (Concentration)</span>
+                <span id="stat-concentration" class="font-mono text-sm font-semibold text-emerald-400">3.0% (標準安全)</span>
+              </div>
+              <div class="w-full bg-botanical-800 rounded-full h-2 overflow-hidden">
+                <div id="stat-concentration-bar" class="bg-emerald-400 h-2 rounded-full transition-all duration-300" style="width: 30%"></div>
+              </div>
+              <p id="safety-warning" class="text-[11px] text-botanical-400 italic">適用於成人局部或隨身滾珠按摩。</p>
+            </div>
+
+            <!-- Note Harmony Pyramid Bars -->
+            <div class="py-5 border-b border-botanical-800 space-y-4">
+              <span class="text-xs font-serif-tc text-botanical-300 block">音階調性比例分佈：</span>
+              
+              <!-- Top Note Bar -->
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-yellow-200 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-yellow-400"></span>前調 (Top Notes)
+                  </span>
+                  <span id="pct-top" class="font-mono text-botanical-300">33%</span>
+                </div>
+                <div class="w-full bg-botanical-800 rounded-full h-2 overflow-hidden">
+                  <div id="bar-top" class="bg-yellow-400 h-2 rounded-full transition-all duration-300" style="width: 33%"></div>
+                </div>
+              </div>
+
+              <!-- Mid Note Bar -->
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-emerald-200 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>中調 (Heart Notes)
+                  </span>
+                  <span id="pct-mid" class="font-mono text-botanical-300">33%</span>
+                </div>
+                <div class="w-full bg-botanical-800 rounded-full h-2 overflow-hidden">
+                  <div id="bar-mid" class="bg-emerald-400 h-2 rounded-full transition-all duration-300" style="width: 33%"></div>
+                </div>
+              </div>
+
+              <!-- Base Note Bar -->
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-amber-300 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-600"></span>後調 (Base Notes)
+                  </span>
+                  <span id="pct-base" class="font-mono text-botanical-300">34%</span>
+                </div>
+                <div class="w-full bg-botanical-800 rounded-full h-2 overflow-hidden">
+                  <div id="bar-base" class="bg-amber-600 h-2 rounded-full transition-all duration-300" style="width: 34%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recipe Summary Snapshot -->
+            <div class="pt-5 space-y-2">
+              <span class="text-xs uppercase font-cinzel tracking-wider text-botanical-400 block">Current Ingredients</span>
+              <ul id="selected-oils-summary" class="text-xs text-botanical-200 divide-y divide-botanical-800">
+                <!-- Javascript will inject real-time item summary -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Sommelier Tip Card -->
+          <div class="bg-botanical-100 border border-botanical-300 rounded-2xl p-5 text-botanical-800">
+            <h4 class="font-serif-tc font-semibold text-sm flex items-center gap-2 mb-2">
+              <span>🕯️</span> 侍香師提醒
+            </h4>
+            <p class="text-xs leading-relaxed text-botanical-700">
+              精油剛調配完時氣味分子尚未充分交融，建議靜置於陰涼遮光處 48 小時「陳化」（Maturation），香氣將展現更圓潤綿延的層次感。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="oil-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="relative bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-botanical-200 transform transition-all">
+        <!-- Close Button -->
+        <button onclick="closeOilModal()" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-botanical-800 transition" aria-label="關閉視窗">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <div id="modal-content" class="p-6 sm:p-8 space-y-6">
+          <!-- Dynamically populated modal content -->
+        </div>
+      </div>
+    </div>
+
+    <section id="contact" class="py-20 bg-botanical-100/60 border-t border-botanical-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <span class="text-xs font-cinzel tracking-widest text-botanical-600 uppercase">Private Appointment</span>
+        <h2 class="text-3xl sm:text-4xl font-serif-tc font-normal text-botanical-900">預約一場私密侍香茶席</h2>
+        <p class="text-sm text-botanical-700 leading-relaxed max-w-xl mx-auto">
+          在隱蔽幽靜的香室中，由資深侍香師透過一對一嗅吸儀式，為您解讀當下情緒脈絡，定制專屬的靈魂印記香氛。
+        </p>
+
+        <div class="pt-6 flex flex-wrap justify-center gap-6 text-sm text-botanical-800">
+          <div class="flex items-center gap-2">
+            <span class="text-amberwood">📍</span> 台北市大安區青田街 12 巷香席工坊
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-amberwood">⏳</span> 席次時長：90 分鐘深度嗅吸諮詢
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-amberwood">🌿</span> 包含 30ml 專屬量身訂製香油乙瓶
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-botanical-950 text-botanical-400 py-12 border-t border-botanical-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-botanical-800">
+        <div>
+          <span class="font-cinzel text-lg tracking-widest text-white block mb-2">L'ÂME BOTANIQUE</span>
+          <p class="text-xs leading-relaxed text-botanical-400">
+            侍香師的任務是溫柔地喚醒人們遺失在快節奏生活中的嗅覺本能，藉由大地的芳香分子，找回與心靈的和解之道。
+          </p>
+        </div>
+        <div>
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-botanical-200 mb-3 font-cinzel">Safety & Guidance</h5>
+          <p class="text-xs leading-relaxed text-botanical-400">
+            純精油為高濃度植物精華，未經稀釋請勿直接接觸肌膚；特殊疾病患者、孕婦與三歲以下幼童，請遵照專業認證芳療師指引使用。
+          </p>
+        </div>
+        <div>
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-botanical-200 mb-3 font-cinzel">Sanctuary Hours</h5>
+          <p class="text-xs leading-relaxed text-botanical-400">
+            週二至週日 11:00 - 20:00 (預約制)<br>
+            電子郵件：concierge@lamebotanique.com
+          </p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-botanical-500">
+        <p>&copy; 2026 L'Âme Botanique 侍香之境 ‧ 版權所有</p>
+        <p class="mt-2 sm:mt-0 font-serif-tc">以敬畏之心 採擷天地芳華</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+  <script>
+    /* Database of Curated Essential Oils */
+    const ESSENTIAL_OILS = [
+      {
+        id: 'bergamot',
+        name: '佛手柑',
+        botanicalName: 'Citrus bergamia',
+        origin: '義大利卡拉布里亞',
+        note: 'top',
+        noteLabel: '前調 (Top Note)',
+        extract: '果皮壓榨 / 無光敏',
+        scentFamily: '柑橘果香調',
+        image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80',
+        quote: '「如同破曉第一縷橙金陽光，驅散心頭所有沉鬱陰霾。」',
+        features: [
+          '富含乙酸芳樟酯與檸檬烯，兼具提振與放鬆',
+          '緩解焦慮緊繃、撫平易怒與消化神經性緊縮',
+          '百搭之王，能完美柔和木質與花香調的銳角'
+        ],
+        blendAdvice: '適合與真正薰衣草、乳香、雪松搭配，構建輕盈而溫暖的開場。',
+        defaultDrops: 2
+      },
+      {
+        id: 'eucalyptus',
+        name: '澳洲尤加利',
+        botanicalName: 'Eucalyptus radiata',
+        origin: '澳洲新南威爾斯',
+        note: 'top',
+        noteLabel: '前調 (Top Note)',
+        extract: '葉片蒸餾',
+        scentFamily: '清新草本調',
+        image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=700&q=80',
+        quote: '「清澈如高山甘泉，暢通心智與胸腔的阻塞。」',
+        features: [
+          '含有溫和的1,8-桉油醇，對呼吸道溫和不刺激',
+          '淨化室內沉滯空氣，掃除疲倦昏睡感',
+          '給予空間澄澈透明的呼吸感'
+        ],
+        blendAdvice: '與迷迭香、雪松調和，形成猶如晨間穿梭針葉林的純淨氣場。',
+        defaultDrops: 0
+      },
+      {
+        id: 'rosemary',
+        name: '迷迭香',
+        botanicalName: 'Rosmarinus officinalis',
+        origin: '西班牙摩洛哥',
+        note: 'mid',
+        noteLabel: '中調 (Heart Note)',
+        extract: '開花全草蒸餾',
+        scentFamily: '草本透澈調',
+        image: 'https://images.unsplash.com/photo-1515586838455-8f8f940d6853?auto=format&fit=crop&w=700&q=80',
+        quote: '「古希臘學者的記憶之冠，點亮理性與專注之火。」',
+        features: [
+          '桉油醇迷迭香，激發大腦前額葉靈感',
+          '提升血液微循環，掃除精神怠惰',
+          '充滿堅毅綠意，帶有草本清涼回甘'
+        ],
+        blendAdvice: '與佛手柑、乳香共組創作工作香方；高血壓與癲癇患者減量使用。',
+        defaultDrops: 0
+      },
+      {
+        id: 'lavender',
+        name: '真正薰衣草',
+        botanicalName: 'Lavandula angustifolia',
+        origin: '普羅旺斯高地 (海拔1100m)',
+        note: 'mid',
+        noteLabel: '中調 (Heart Note)',
+        extract: '開花頂部蒸餾',
+        scentFamily: '柔和花草調',
+        image: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=700&q=80',
+        quote: '「芳療之后，大地之母賜予所有靈魂的無條件擁抱。」',
+        features: [
+          '高比例酯類分子，極佳安撫副交感神經作用',
+          '調節情緒波動、支持深度睡眠品質',
+          '極佳親膚修復特性，安撫泛紅敏弱'
+        ],
+        blendAdvice: '芳療中的萬用基石，與任何柑橘或木質皆能天衣無縫融合。',
+        defaultDrops: 2
+      },
+      {
+        id: 'rose',
+        name: '大馬士革玫瑰',
+        botanicalName: 'Rosa damascena',
+        origin: '保加利亞玫瑰谷',
+        note: 'mid',
+        noteLabel: '中調 (Heart Note)',
+        extract: '手工破曉採摘花瓣低壓蒸餾',
+        scentFamily: '奢華花香調',
+        image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80',
+        quote: '「三千朵晨露花瓣凝聚成一滴，重啟緊閉的心輪之門。」',
+        features: [
+          '頂級大馬士革酮與香茅醇，深度化解哀傷與防衛心靈',
+          '高雅綿長的花香，帶來尊貴與自我珍視之感受',
+          '強大的熟齡肌膚滋潤與荷爾蒙平穩共鳴'
+        ],
+        blendAdvice: '香氣極為濃郁，通常只需 1 滴即可成為整款香方的靈魂亮點。',
+        defaultDrops: 0
+      },
+      {
+        id: 'ylang',
+        name: '依蘭依蘭 (特級)',
+        botanicalName: 'Cananga odorata',
+        origin: '馬達加斯加',
+        note: 'mid',
+        noteLabel: '中/後調 (Heart/Base)',
+        extract: '初道完全蒸餾 (Extra)',
+        scentFamily: '異國奔放花香調',
+        image: 'https://images.unsplash.com/photo-1595126730719-da4e17402685?auto=format&fit=crop&w=700&q=80',
+        quote: '「浪漫島嶼的晚風，解放壓抑天性與感官歡愉。」',
+        features: [
+          '迅速減緩急促呼吸與心悸，釋放隱忍壓力',
+          '濃郁甘甜的夜綻花朵氣息，催化親密感與自信',
+          '微量使用能為草本香氣增添絲緞般柔滑感'
+        ],
+        blendAdvice: '建議比例不超過 10%，搭配檀香或佛手柑能展現深邃雅致情調。',
+        defaultDrops: 0
+      },
+      {
+        id: 'cedarwood',
+        name: '大西洋雪松',
+        botanicalName: 'Cedrus atlantica',
+        origin: '摩洛哥阿特拉斯山脈',
+        note: 'base',
+        noteLabel: '後調 (Base Note)',
+        extract: '樹幹木心蒸餾',
+        scentFamily: '溫潤乾燥木質調',
+        image: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=700&q=80',
+        quote: '「千古神廟的柱石，賦予人在狂風暴雨中紮根的定力。」',
+        features: [
+          '含豐富雪松醇與倍半萜烯，具強大的定香能力與心靈守護感',
+          '化解孤獨無助感，建立堅實心理防界',
+          '促進淋巴循環代謝，舒緩身體沉重水氣'
+        ],
+        blendAdvice: '與柑橘、真正薰衣草是完美的三角和弦，帶來長效木質回甘。',
+        defaultDrops: 2
+      },
+      {
+        id: 'frankincense',
+        name: '索馬利亞乳香',
+        botanicalName: 'Boswellia carterii',
+        origin: '東非索馬利亞沙漠',
+        note: 'base',
+        noteLabel: '後調 (Base Note)',
+        extract: '野生樹榦淚滴樹脂蒸餾',
+        scentFamily: '神聖樹脂木質調',
+        image: 'https://images.unsplash.com/photo-1509783236416-c9ad59bae472?auto=format&fit=crop&w=700&q=80',
+        quote: '「跨越數千年的神聖祝禱，讓每一次呼吸都沉澱入靈魂核心。」',
+        features: [
+          '乳香酸與蒎烯分子，深層放緩呼吸速率，引導進入禪定',
+          '撫平焦躁紛亂的心猿意馬，助冥想與靈性連結',
+          '古代埃及御用撫紋聖品，賦予肌膚彈性'
+        ],
+        blendAdvice: '與玫瑰搭配締造頂級貴婦奢養香，與尤加利調和則展現清幽寺院禪意。',
+        defaultDrops: 0
+      }
+    ];
+
+    /* Blending Studio State */
+    let currentCarrier = 'rollon'; // rollon (10ml), massage (30ml), mist (50ml), diffuser (waterless)
+    let dropState = {};
+
+    // Initialize drop state from defaults
+    ESSENTIAL_OILS.forEach(oil => {
+      dropState[oil.id] = oil.defaultDrops || 0;
+    });
+
+    function renderOilCards(filter = 'all') {
+      const container = document.getElementById('oils-grid');
+      container.innerHTML = '';
+
+      const filtered = filter === 'all' 
+        ? ESSENTIAL_OILS 
+        : ESSENTIAL_OILS.filter(o => o.note === filter || (filter === 'mid' && o.note === 'mid'));
+
+      filtered.forEach(oil => {
+        const card = document.createElement('div');
+        card.className = "group bg-white rounded-3xl overflow-hidden border border-botanical-200/80 hover:border-botanical-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col";
+        
+        let noteBadgeColor = 'bg-amber-100 text-amber-800';
+        if (oil.note === 'top') noteBadgeColor = 'bg-yellow-100 text-yellow-800';
+        if (oil.note === 'mid') noteBadgeColor = 'bg-emerald-100 text-emerald-800';
+        if (oil.note === 'base') noteBadgeColor = 'bg-amber-100 text-amber-900';
+
+        card.innerHTML = `
+          <div class="relative h-48 w-full overflow-hidden bg-botanical-100">
+            <img 
+              src="${oil.image}" 
+              alt="${oil.name}" 
+              onerror="this.src='https://placehold.co/600x400/3A2D23/FAF8F5?text=${encodeURIComponent(oil.name)}'"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              loading="lazy"
+            >
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider ${noteBadgeColor} shadow-sm">
+              ${oil.noteLabel}
+            </span>
+          </div>
+
+          <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="text-xl font-serif-tc font-semibold text-botanical-900">${oil.name}</h3>
+                <span class="text-xs text-botanical-500 font-cinzel">${oil.scentFamily}</span>
+              </div>
+              <p class="text-xs font-mono text-botanical-600 italic mb-3">${oil.botanicalName}</p>
+              <p class="text-xs text-botanical-700 font-serif-tc line-clamp-2 italic mb-3">
+                ${oil.quote}
+              </p>
+              
+              <ul class="text-xs text-botanical-600 space-y-1 mb-2">
+                <li class="flex items-start gap-1.5">
+                  <span class="text-amberwood text-sm leading-none">•</span>
+                  <span>產地：${oil.origin}</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-amberwood text-sm leading-none">•</span>
+                  <span>特色：${oil.features[0]}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-3 border-t border-botanical-100 flex items-center justify-between">
+              <button onclick="openOilModal('${oil.id}')" class="text-xs font-serif-tc font-medium text-botanical-800 hover:text-amberwood transition flex items-center gap-1">
+                詳細香氣檔案 <span>&rarr;</span>
+              </button>
+              <button onclick="addOneDrop('${oil.id}')" class="p-2 rounded-full hover:bg-botanical-100 text-botanical-700 transition" title="加入調配台">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderBlenderSliders() {
+      const container = document.getElementById('oil-sliders-container');
+      container.innerHTML = '';
+
+      ESSENTIAL_OILS.forEach(oil => {
+        const drops = dropState[oil.id] || 0;
+        const div = document.createElement('div');
+        div.className = "p-3.5 bg-botanical-50/70 border border-botanical-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3";
+
+        let noteBadge = 'bg-yellow-100 text-yellow-800';
+        if (oil.note === 'mid') noteBadge = 'bg-emerald-100 text-emerald-800';
+        if (oil.note === 'base') noteBadge = 'bg-amber-100 text-amber-900';
+
+        div.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-semibold ${noteBadge}">
+              ${oil.note.toUpperCase()}
+            </span>
+            <div>
+              <p class="text-sm font-serif-tc font-semibold text-botanical-900">${oil.name}</p>
+              <p class="text-[11px] text-botanical-500">${oil.scentFamily}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-3 self-end sm:self-center">
+            <button type="button" onclick="modifyDrops('${oil.id}', -1)" class="w-8 h-8 rounded-full border border-botanical-300 bg-white hover:bg-botanical-100 flex items-center justify-center text-botanical-800 font-bold transition">
+              -
+            </button>
+            <span id="drops-val-${oil.id}" class="w-8 text-center font-mono font-bold text-sm text-botanical-900">
+              ${drops}
+            </span>
+            <button type="button" onclick="modifyDrops('${oil.id}', 1)" class="w-8 h-8 rounded-full border border-botanical-300 bg-white hover:bg-botanical-100 flex items-center justify-center text-botanical-800 font-bold transition">
+              +
+            </button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      updateFormulationAnalysis();
+    }
+
+    function updateFormulationAnalysis() {
+      let totalDrops = 0;
+      let topDrops = 0;
+      let midDrops = 0;
+      let baseDrops = 0;
+      const summaryList = document.getElementById('selected-oils-summary');
+      summaryList.innerHTML = '';
+
+      ESSENTIAL_OILS.forEach(oil => {
+        const count = dropState[oil.id] || 0;
+        totalDrops += count;
+
+        if (oil.note === 'top') topDrops += count;
+        if (oil.note === 'mid') midDrops += count;
+        if (oil.note === 'base') baseDrops += count;
+
+        if (count > 0) {
+          const li = document.createElement('li');
+          li.className = "py-1.5 flex justify-between items-center";
+          li.innerHTML = `
+            <span>${oil.name} (${oil.noteLabel.split(' ')[0]})</span>
+            <span class="font-mono text-amber-300 font-medium">${count} 滴</span>
+          `;
+          summaryList.appendChild(li);
+        }
+      });
+
+      if (totalDrops === 0) {
+        summaryList.innerHTML = '<li class="py-2 text-botanical-500 italic">尚未選取任何精油滴數</li>';
+      }
+
+      // Update Top stat
+      document.getElementById('stat-total-drops').innerText = totalDrops;
+
+      // Note Percentages
+      const topPct = totalDrops > 0 ? Math.round((topDrops / totalDrops) * 100) : 0;
+      const midPct = totalDrops > 0 ? Math.round((midDrops / totalDrops) * 100) : 0;
+      const basePct = totalDrops > 0 ? (100 - topPct - midPct) : 0;
+
+      document.getElementById('pct-top').innerText = `${topPct}%`;
+      document.getElementById('bar-top').style.width = `${topPct}%`;
+
+      document.getElementById('pct-mid').innerText = `${midPct}%`;
+      document.getElementById('bar-mid').style.width = `${midPct}%`;
+
+      document.getElementById('pct-base').innerText = `${basePct}%`;
+      document.getElementById('bar-base').style.width = `${basePct}%`;
+
+      // Concentration calculation based on carrier
+      // 1ml essential oil ≈ 20 drops
+      // 10ml rollon = 200 drops capacity -> 6 drops = (6 / 200) = 3%
+      // 30ml massage = 600 drops capacity -> 12 drops = 2%
+      // 50ml mist = 1000 drops capacity
+      let concentrationPct = 0;
+      let safetyText = '';
+      let badgeColorClass = 'text-emerald-400';
+      let barColorClass = 'bg-emerald-400';
+
+      if (currentCarrier === 'rollon') { // 10ml
+        concentrationPct = ((totalDrops / 200) * 100).toFixed(1);
+        if (concentrationPct <= 3.0) {
+          safetyText = '適中安全：符合臉頸局部或脈搏點滾珠油規範 (1%~3%)。';
+          badgeColorClass = 'text-emerald-400';
+          barColorClass = 'bg-emerald-400';
+        } else if (concentrationPct <= 5.0) {
+          safetyText = '高濃度調配：僅限局部點塗，敏弱肌請先做手臂內側皮試。';
+          badgeColorClass = 'text-amber-400';
+          barColorClass = 'bg-amber-400';
+        } else {
+          safetyText = '警告：濃度已超過安全範圍 (>5%)，請適量減少滴數避免肌膚不適。';
+          badgeColorClass = 'text-rose-400';
+          barColorClass = 'bg-rose-400';
+        }
+      } else if (currentCarrier === 'massage') { // 30ml
+        concentrationPct = ((totalDrops / 600) * 100).toFixed(1);
+        if (concentrationPct <= 2.5) {
+          safetyText = '溫和全身體質油：適合全身經絡推抹、沐浴後保養。';
+          badgeColorClass = 'text-emerald-400';
+          barColorClass = 'bg-emerald-400';
+        } else {
+          safetyText = '局部重點按摩濃度：建議針對肩頸僵硬或痠痛局部使用。';
+          badgeColorClass = 'text-amber-400';
+          barColorClass = 'bg-amber-400';
+        }
+      } else if (currentCarrier === 'mist') { // 50ml
+        concentrationPct = ((totalDrops / 1000) * 100).toFixed(1);
+        safetyText = '空間噴霧：使用前請充分搖勻，避免直噴眼鼻黏膜。';
+        badgeColorClass = 'text-cyan-400';
+        barColorClass = 'bg-cyan-400';
+      } else { // pure diffuser
+        concentrationPct = '純油';
+        safetyText = '無載體稀釋：每次向擴香儀或水氧機加入 4~8 滴即可。';
+        badgeColorClass = 'text-yellow-300';
+        barColorClass = 'bg-yellow-300';
+      }
+
+      const concentrationEl = document.getElementById('stat-concentration');
+      const concentrationBar = document.getElementById('stat-concentration-bar');
+      const safetyWarning = document.getElementById('safety-warning');
+
+      if (currentCarrier === 'diffuser') {
+        concentrationEl.innerText = '100% 純複方精油';
+        concentrationBar.style.width = '100%';
+      } else {
+        concentrationEl.innerText = `${concentrationPct}% 調和濃度`;
+        const visualBarWidth = Math.min(Math.max(parseFloat(concentrationPct) * 15, 5), 100);
+        concentrationBar.style.width = `${visualBarWidth}%`;
+      }
+
+      concentrationEl.className = `font-mono text-sm font-semibold ${badgeColorClass}`;
+      concentrationBar.className = `h-2 rounded-full transition-all duration-300 ${barColorClass}`;
+      safetyWarning.innerText = safetyText;
+    }
+
+    function modifyDrops(oilId, delta) {
+      const current = dropState[oilId] || 0;
+      const next = Math.max(0, current + delta);
+      dropState[oilId] = next;
+
+      const valEl = document.getElementById(`drops-val-${oilId}`);
+      if (valEl) valEl.innerText = next;
+
+      updateFormulationAnalysis();
+    }
+
+    function addOneDrop(oilId) {
+      modifyDrops(oilId, 1);
+      showToast(`已將 1 滴「${ESSENTIAL_OILS.find(o => o.id === oilId).name}」加入調香工作台`, 'success');
+      // Scroll smoothly to blender if on mobile
+      if (window.innerWidth < 768) {
+        document.getElementById('blender').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function resetBlender() {
+      Object.keys(dropState).forEach(key => {
+        dropState[key] = 0;
+        const valEl = document.getElementById(`drops-val-${key}`);
+        if (valEl) valEl.innerText = '0';
+      });
+      updateFormulationAnalysis();
+      showToast('工作台滴數已全部重置為 0', 'info');
+    }
+
+    function handleCarrierChange(radioInput) {
+      currentCarrier = radioInput.value;
+      const hint = document.getElementById('carrier-hint');
+      
+      // Update styling on carrier labels
+      document.querySelectorAll('.carrier-option').forEach(label => {
+        label.classList.remove('border-botanical-300', 'bg-botanical-50/50');
+        label.classList.add('border-transparent');
+      });
+      radioInput.closest('label').classList.remove('border-transparent');
+      radioInput.closest('label').classList.add('border-botanical-300', 'bg-botanical-50/50');
+
+      if (currentCarrier === 'rollon') hint.innerText = '建議安全濃度：2% ~ 3%';
+      if (currentCarrier === 'massage') hint.innerText = '建議安全濃度：1.5% ~ 2.5%';
+      if (currentCarrier === 'mist') hint.innerText = '建議濃度：1% ~ 2% 空間香氛';
+      if (currentCarrier === 'diffuser') hint.innerText = '水氧機建議總滴數：5 ~ 8 滴';
+
+      updateFormulationAnalysis();
+    }
+
+    function loadRecipeToBlender(recipeKey) {
+      // Clear current drops
+      Object.keys(dropState).forEach(k => dropState[k] = 0);
+
+      const blendNameInput = document.getElementById('blend-name');
+      const blendNotesInput = document.getElementById('blend-notes');
+
+      if (recipeKey === 'slumber') {
+        dropState['lavender'] = 4;
+        dropState['bergamot'] = 3;
+        dropState['cedarwood'] = 3;
+        if (blendNameInput) blendNameInput.value = '月湧靜瀾 (Deep Slumber)';
+        if (blendNotesInput) blendNotesInput.value = '注重深度睡眠、夜間平息焦慮的情境。';
+        document.querySelector('input[name="carrier"][value="rollon"]').checked = true;
+        currentCarrier = 'rollon';
+      } else if (recipeKey === 'clarity') {
+        dropState['rosemary'] = 4;
+        dropState['eucalyptus'] = 4;
+        dropState['frankincense'] = 2;
+        if (blendNameInput) blendNameInput.value = '晨曦靈光 (Lucid Dawn)';
+        if (blendNotesInput) blendNotesInput.value = '提升日間專注力與開闊呼吸道。';
+        document.querySelector('input[name="carrier"][value="mist"]').checked = true;
+        currentCarrier = 'mist';
+      } else if (recipeKey === 'love') {
+        dropState['rose'] = 2;
+        dropState['ylang'] = 2;
+        dropState['bergamot'] = 4;
+        if (blendNameInput) blendNameInput.value = '繁花予己 (Roseate Grace)';
+        if (blendNotesInput) blendNotesInput.value = '釋放緊繃、滋養心輪與柔嫩保養。';
+        document.querySelector('input[name="carrier"][value="massage"]').checked = true;
+        currentCarrier = 'massage';
+      }
+
+      // Sync inputs
+      ESSENTIAL_OILS.forEach(oil => {
+        const valEl = document.getElementById(`drops-val-${oil.id}`);
+        if (valEl) valEl.innerText = dropState[oil.id];
+      });
+
+      updateFormulationAnalysis();
+
+      document.getElementById('blender').scrollIntoView({ behavior: 'smooth' });
+      showToast('已成功將推薦配方載入調香工作台！', 'success');
+    }
+
+    function openOilModal(oilId) {
+      const oil = ESSENTIAL_OILS.find(o => o.id === oilId);
+      if (!oil) return;
+
+      const modalContent = document.getElementById('modal-content');
+      modalContent.innerHTML = `
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-full sm:w-1/2 rounded-2xl overflow-hidden shadow-md h-56 bg-botanical-100">
+            <img src="${oil.image}" alt="${oil.name}" onerror="this.src='https://placehold.co/600x400/3A2D23/FAF8F5?text=${encodeURIComponent(oil.name)}'" class="w-full h-full object-cover">
+          </div>
+          <div class="w-full sm:w-1/2 space-y-2">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-botanical-100 text-botanical-800">
+              ${oil.noteLabel}
+            </span>
+            <h3 class="text-2xl font-serif-tc font-bold text-botanical-900">${oil.name}</h3>
+            <p class="text-xs font-mono text-botanical-600 italic">${oil.botanicalName}</p>
+            <p class="text-xs text-botanical-700"><strong>原產地：</strong>${oil.origin}</p>
+            <p class="text-xs text-botanical-700"><strong>萃取工藝：</strong>${oil.extract}</p>
+            <p class="text-xs text-botanical-700"><strong>香氣調性：</strong>${oil.scentFamily}</p>
+          </div>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <h4 class="font-serif-tc font-semibold text-sm text-botanical-900">核心植物療癒力：</h4>
+          <ul class="text-xs text-botanical-700 space-y-1.5 list-disc pl-5">
+            ${oil.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-botanical-50 border border-botanical-200 space-y-1.5">
+          <h4 class="font-serif-tc font-semibold text-xs text-botanical-900">侍香師和弦建議：</h4>
+          <p class="text-xs text-botanical-600 leading-relaxed">${oil.blendAdvice}</p>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t border-botanical-100">
+          <button onclick="closeOilModal()" class="px-5 py-2.5 rounded-full text-xs font-medium text-botanical-700 hover:bg-botanical-100 transition">
+            關閉
+          </button>
+          <button onclick="addOneDrop('${oil.id}'); closeOilModal();" class="px-6 py-2.5 rounded-full text-xs font-medium bg-botanical-900 text-white hover:bg-botanical-800 transition">
+            加入調配台 (+1滴)
+          </button>
+        </div>
+      `;
+
+      document.getElementById('oil-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOilModal() {
+      document.getElementById('oil-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    document.getElementById('oil-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeOilModal();
+    });
+
+    function handleBlendSubmit(event) {
+      event.preventDefault();
+      
+      let totalDrops = 0;
+      Object.values(dropState).forEach(v => totalDrops += v);
+
+      if (totalDrops === 0) {
+        showToast('請至少為調配台添加 1 滴精油後再送出香方委託。', 'warning');
+        return;
+      }
+
+      const clientName = document.getElementById('client-name').value;
+      const blendName = document.getElementById('blend-name').value || '未命名專屬香方';
+
+      showToast(`已成功為 ${clientName} 預約調製「${blendName}」！侍香師將於24小時內致電確認。`, 'success');
+      
+      // Optional reset after successful mock order
+      document.getElementById('custom-blend-form').reset();
+    }
+
+    function copyRecipeCard() {
+      let totalDrops = 0;
+      let recipeLines = [];
+      
+      ESSENTIAL_OILS.forEach(oil => {
+        const count = dropState[oil.id] || 0;
+        if (count > 0) {
+          totalDrops += count;
+          recipeLines.push(`• ${oil.name} (${oil.botanicalName}) : ${count} 滴`);
+        }
+      });
+
+      if (totalDrops === 0) {
+        showToast('調配台上尚無任何精油滴數可供複製。', 'warning');
+        return;
+      }
+
+      const blendName = document.getElementById('blend-name').value || '侍香專屬配方';
+      const carrierMap = {
+        rollon: '10ml 隨身滾珠油 (荷荷芭油)',
+        massage: '30ml 舒緩按摩油 (甜杏仁油)',
+        mist: '50ml 香氛噴霧 (植萃酒精)',
+        diffuser: '水氧機 / 擴香儀 (純油擴香)'
+      };
+
+      const copyText = `【L'Âme Botanique 侍香之境 ‧ 香譜卡】
+香方名稱：${blendName}
+基底載體：${carrierMap[currentCarrier]}
+總精油滴數：${totalDrops} 滴
+
+配方結構：
+${recipeLines.join('\n')}
+
+侍香叮嚀：調和後建議遮光靜置 48 小時陳化，待香氣分子徹底交融。`;
+
+      // Copy using textarea fallback for iframe security
+      const textArea = document.createElement("textarea");
+      textArea.value = copyText;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast('配方已複製到剪貼簿！可隨時貼上分享或筆記保存。', 'success');
+        } else {
+          showToast('複製失敗，請手動圈選文字。', 'error');
+        }
+      } catch (err) {
+        showToast('瀏覽器安全性限制，請手動複製配方。', 'error');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      let bgStyle = 'bg-botanical-900 text-botanical-50 border-botanical-700';
+      let icon = '🌿';
+
+      if (type === 'success') {
+        bgStyle = 'bg-stone-900 text-white border-emerald-500/40';
+        icon = '✨';
+      } else if (type === 'warning') {
+        bgStyle = 'bg-amber-950 text-amber-100 border-amber-600/50';
+        icon = '⚠️';
+      }
+
+      toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl border text-xs max-w-sm transition-all duration-300 transform translate-y-2 opacity-0 ${bgStyle}`;
+      toast.innerHTML = `
+        <span class="text-base">${icon}</span>
+        <span class="leading-relaxed">${message}</span>
+      `;
+
+      container.appendChild(toast);
+
+      // Trigger enter animation
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 20);
+
+      // Auto dismiss after 4.5 seconds
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 4500);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render initial cards and formulation tool
+      renderOilCards('all');
+      renderBlenderSliders();
+
+      // Filter button clicks
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-botanical-900', 'text-white');
+            b.classList.add('bg-botanical-100', 'text-botanical-800');
+          });
+          btn.classList.add('bg-botanical-900', 'text-white');
+          btn.classList.remove('bg-botanical-100', 'text-botanical-800');
+
+          renderOilCards(btn.getAttribute('data-filter'));
+        });
+      });
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
